@@ -1,5 +1,5 @@
 const {
-  abs, all, any,
+  abs, all, any, bin,
   sum, callable, chr, ord
 } = require("pyfn");
 
@@ -22,6 +22,14 @@ test("any", () => {
   expect(any([false, {}])).toBeTruthy();
   expect(any([false, []])).toBeTruthy();
   expect(any([false, 0, 0.0, ""])).toBeFalsy();
+});
+
+test("bin", () => {
+  expect(bin(3)).toBe("0b11");
+  expect(bin(10)).toBe("0b1010");
+  expect(bin(-10)).toBe("-0b1010");
+  expect(() => bin("10")).toThrow(TypeError);
+  expect(() => bin(10.4)).toThrow(TypeError);
 });
 
 test("sum", () => {

@@ -20,6 +20,15 @@ function any(iterable) {
   return false;
 }
 
+function bin(x) {
+  if (!Number.isInteger(x)) {
+    throw new TypeError("The argument must be integer");
+  }
+  let prefix = x < 0 ? "-0b" : "0b";
+  let bynary = x < 0 ? (-x).toString(2) : x.toString(2);
+  return prefix + bynary;
+}
+
 function sum(iterable, start = 0) {
   if (typeof iterable == "string") {
     throw new TypeError();
@@ -45,7 +54,7 @@ function ord(c) {
 }
 
 module.exports = {
-  abs, all, any,
+  abs, all, any, bin,
   sum,
   callable,
   chr,
