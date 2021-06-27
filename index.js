@@ -53,10 +53,26 @@ function ord(c) {
   return c.codePointAt();
 }
 
+function* range(start, stop, step = start < stop ? 1 : -1) {
+  if (!stop) {
+    for (let i = 0; i < start; i++) {
+      yield i;
+    }
+  }
+
+  if (step > 0) {
+    for (let i = start; i < stop; i += step) {
+      yield i;
+    }
+  } else {
+    for (let i = start; i > stop; i += step) {
+      yield i;
+    }
+  }
+}
+
 module.exports = {
   abs, all, any, bin,
-  sum,
-  callable,
-  chr,
-  ord,
+  sum, callable, chr, ord,
+  range,
 }

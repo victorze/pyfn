@@ -1,6 +1,7 @@
 const {
   abs, all, any, bin,
-  sum, callable, chr, ord
+  sum, callable, chr, ord,
+  range,
 } = require("pyfn");
 
 test("abs", () => {
@@ -59,4 +60,21 @@ test("ord", () => {
   expect(ord("a")).toBe(97);
   expect(ord("€")).toBe(8364);
   expect(ord("😃")).toBe(128515);
+});
+
+test("range", () => {
+  const obj = range(1, 5);
+  expect(typeof obj[Symbol.iterator]).toBe("function");
+  expect(range(1, 5).next()).toEqual({ value: 1, done: false });
+  expect(range(1, 1).next()).toEqual({ value: undefined, done: true });
+  expect(Array.from(range(10, 20)).length).toBe(10);
+  expect(Array.from(range(10, 20))[9]).toBe(19);
+  expect(Array.from(range(10, 20, 2)).length).toBe(5);
+  expect(Array.from(range(10, 20, 2))[4]).toBe(18);
+
+  expect(Array.from(range(5, 1)).length).toBe(4);
+  expect(Array.from(range(20, 10, -2)).length).toBe(5);
+  expect(Array.from(range(20, 10, -2))[4]).toBe(12);
+
+  expect(Array.from(range(10)).length).toBe(10);
 });
