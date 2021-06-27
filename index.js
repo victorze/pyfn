@@ -75,8 +75,16 @@ function len(s) {
   return Array.from(s).length;
 }
 
+function list(iterable) {
+  if (!iterable) return [];
+  if (Object.getPrototypeOf(iterable) == Map.prototype) {
+    return Array.from(iterable.keys());
+  }
+  return Array.from(iterable);
+}
+
 module.exports = {
   abs, all, any, bin,
   sum, callable, chr, ord,
-  range, len,
+  range, len, list,
 }
