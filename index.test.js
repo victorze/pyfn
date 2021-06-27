@@ -1,7 +1,7 @@
 const {
   abs, all, any, bin,
   sum, callable, chr, ord,
-  range,
+  range, len,
 } = require("pyfn");
 
 test("abs", () => {
@@ -76,4 +76,23 @@ test("range", () => {
   expect(Array.from(range(20, 10, -2))[4]).toBe(12);
 
   expect(Array.from(range(10)).length).toBe(10);
+});
+
+test ("len", () => {
+  expect(len("python")).toBe(6);
+  expect(len([1, 2, 3])).toBe(3);
+
+  const ages = new Map();
+  ages.set("Boris", 39);
+  ages.set("Liang", 22);
+  ages.set("Júlia", 62);
+  expect(len(ages)).toBe(3);
+
+  const set = new Set()
+  set.add(1)
+  set.add(5)
+  set.add(5)
+  expect(len(set)).toBe(2);
+
+  expect(len(range(5))).toBe(5); // range is built-in function
 });

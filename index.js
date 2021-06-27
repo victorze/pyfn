@@ -71,8 +71,12 @@ function* range(start, stop, step = start < stop ? 1 : -1) {
   }
 }
 
+function len(s) {
+  return Array.from(s).length;
+}
+
 module.exports = {
   abs, all, any, bin,
   sum, callable, chr, ord,
-  range,
+  range, len,
 }
