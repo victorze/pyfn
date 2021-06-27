@@ -63,8 +63,7 @@ test("ord", () => {
 });
 
 test("range", () => {
-  const obj = range(1, 5);
-  expect(typeof obj[Symbol.iterator]).toBe("function");
+  expect(typeof range(1, 5)[Symbol.iterator]).toBe("function");
   expect(range(1, 5).next()).toEqual({ value: 1, done: false });
   expect(range(1, 1).next()).toEqual({ value: undefined, done: true });
   expect(Array.from(range(10, 20)).length).toBe(10);
