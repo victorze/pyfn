@@ -1,16 +1,28 @@
 {
   "name": "pyfn",
   "version": "0.1.0",
-  "description": "Python built-in functions",
+  "description": "Python built-in functions implemented in Javascript",
   "license": "MIT",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorze/pyfn.git"
   },
   "keywords": [
     "python"
   ],
+  "author": "Victor",
   "devDependencies": {
     "jest": "^27.0.5"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/victorze/pyfn/issues"
+  },
+  "homepage": "https://github.com/victorze/pyfn#readme"
 }
